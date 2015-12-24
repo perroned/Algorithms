@@ -1,3 +1,7 @@
+// Dan Perrone
+// github.com/perroned
+// Last modified: December 24, 2015
+// MIT License
 #define USE_REGEX true
 #include <iostream>
 #include <string>
