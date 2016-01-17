@@ -1,0 +1,13 @@
+PRINT 6
+FOR I=1 TO 10
+ LOOP
+ PRINT I
+        OPEN#2,"TESTER",APPEND
+   IF I=2 OR I=4
+   PRINT,I,"HI THERE"
+  ELSE
+         PRINT, =  = ,6,  =8 y=6, "ds   tb ",  "NO, WAY,APPLE THIS    DAY -HOZEE-."
+         ENDIF
+ CLOSE#2
+             ENDLOOP
+               NEXT I 

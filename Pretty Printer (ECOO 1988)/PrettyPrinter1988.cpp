@@ -3,14 +3,14 @@
 // Last modified: December 24, 2015
 // MIT License
 #define USE_REGEX true
+#include <fstream>
 #include <iostream>
 #include <string>
-#include <fstream>
 #include <vector>
 #if USE_REGEX == true
-#include <regex>
-#include <utility> // for pairing regex search with action
-using std::regex;
+	#include <regex>
+	#include <utility> // for pairing regex search with action
+	using std::regex;
 #endif // USE_REGEX
 using std::string;
 using std::vector;
@@ -73,22 +73,31 @@ void checkIndent(vector<string>& lines, unsigned int ind, unsigned int& level) {
 }
 
 int main(int argc, char *argv[]) {
-	if (argc == 2) { // should only receive 1 user specified arg, file with full absolute path
-		vector<string> input;
-		std::ifstream file(argv[1]);
-
-		if (!file) { return -1; }
-		string line;
-		while (std::getline(file, line)) { // read input line by line
-			input.push_back(line);
-		}
-
-		for (unsigned int ind = 0, level = 0; ind < input.size(); ind++) { // process each line
-			formatOutsideQuotes(input[ind]); // format the line with syntax rules
-			checkIndent(input, ind, level); // evaluate indentation level
-			cout << input[ind] << endl;
-		}
-		std::getchar();
+	// should only receive 1 user specified arg, file with full absolute path
+	if (argc != 2) {
+		std::cerr << "must provide a data file argument";
+		return -1;
 	}
+
+	std::ifstream infile(argv[1]);
+
+	if (!infile) {
+		std::cerr << "failed to open file";
+		return -1;
+	}
+
+	vector<string> input;
+	string line;
+	while (std::getline(infile, line)) { // read input line by line
+		input.push_back(line);
+	}
+
+	for (unsigned int ind = 0, level = 0; ind < input.size(); ind++) { // process each line
+		formatOutsideQuotes(input[ind]); // format the line with syntax rules
+		checkIndent(input, ind, level); // evaluate indentation level
+		cout << input[ind] << endl;
+	}
+
+	std::getchar();
 	return 0;
 }

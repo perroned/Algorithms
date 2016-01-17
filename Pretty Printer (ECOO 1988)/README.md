@@ -1,8 +1,6 @@
-Set `USE_REGEX` to `true` to use a regular expression method to solve the problem. Otherwise a stack-based, algorithm will be used.
-
 [Source via ECOO (Page 20)](http://ecoocs.org/contests/ecoo_pre1999.pdf)
 
------
+![problem](./problem.PNG)
 
 ## **18 Pretty Printer (Regionals 1988)**
 
@@ -57,3 +55,14 @@ FOR I = 1 TO 10
 NEXT I
 ```
 ECOO-CS Programming Contest Questions 1986-1998 20
+
+-----
+
+Usage:
+
+Set `USE_REGEX` to `true` to use a regular expression method to solve the problem. Otherwise a stack-based, algorithm will be used.
+
+```
+g++ -o PrettyPrinter PrettyPrinter.cpp
+./PrettyPrinter <file_name/DATA21.txt>
+```
